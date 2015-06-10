@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<project name="MeldFinder" default="all" basedir=".">
+
+    <target name="all" depends="clean, jar" />
+
+    <target name="clean">
+        <delete dir="bin" />
+        <delete dir="dist" />
+    </target>
+
+    <target name="build">
+        <mkdir dir="bin" />
+        <javac srcdir="src" destdir="bin"
+               includes="**/*.java" 
+               includeantruntime="false" />
+    </target>
+
+    <target name="jar" depends="build">
+        <mkdir dir="dist" />
+        <jar destfile="dist/MeldFinder.jar" basedir="bin">
+            <manifest>
+                <attribute name="Main-Class" value="com.lykat.meldfinder.main.Main" />
+            </manifest>
+        </jar>
+    </target>
+
+</project>

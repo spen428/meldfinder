@@ -1,10 +1,9 @@
 package com.lykat.meldfinder.main;
 
-import com.lykat.meldfinder.main.Test.TestType;
-
 /**
  * A small program that I hacked together in order to attempt to find legal
- * hands from within an arbitrary set of random mahjong tiles.
+ * hands from within an arbitrary set of random mahjong tiles. It's nowhere near
+ * as efficient as it could be, but it does the job!
  * 
  * Used to verify the solution to the mathematical problem:
  * 
@@ -19,12 +18,11 @@ import com.lykat.meldfinder.main.Test.TestType;
  */
 public class Main {
 
-	private static final TestType TEST_TYPE = TestType.RANDOM;
-	private static final int PASSES = 10000000;
+	private static final int PASSES = 100000;
 	private static final int REMOVALS = 94;
 
 	public static void main(String args[]) {
-		new Test().startTest(TEST_TYPE, PASSES, REMOVALS);
+		new Test().startTest(PASSES, REMOVALS);
 	}
 
 }

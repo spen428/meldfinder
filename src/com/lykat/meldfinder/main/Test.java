@@ -4,21 +4,15 @@ import com.lykat.meldfinder.main.Hand.HandType;
 
 public class Test {
 
-	public enum TestType {
-		RANDOM, FOUR_PLAYER, THREE_PLAYER, TWO_PLAYER
-	};
-
 	/**
 	 * Initiates a test run.
 	 * 
-	 * @param testType
-	 *            the type of test
 	 * @param passes
 	 *            number of runs
 	 * @param removeNum
 	 *            the number of tiles to remove (for random mode)
 	 */
-	public void startTest(TestType testType, int passes, int removeNum) {
+	public void startTest(int passes, int removeNum) {
 		System.out.printf(
 				"Running %d passes, estimated completion time: <%.2fs%n",
 				passes, passes * 0.00001d);
@@ -26,24 +20,6 @@ public class Test {
 		int fail = 0, reg = 0, chii = 0, km = 0;
 		for (int i = 0; i < passes; i++) {
 			Tile[] tileSet;
-
-			switch (testType) {
-			case FOUR_PLAYER:
-				tileSet = TileSet.fourPlayerTileSet();
-				break;
-			case THREE_PLAYER:
-				tileSet = TileSet.threePlayerTileSet();
-				break;
-			case TWO_PLAYER:
-				tileSet = TileSet.twoPlayerTileSet();
-				break;
-			default:
-				return;
-			}
-
-			if (testType != TestType.RANDOM) {
-				removeNum = tileSet.length - 14;
-			}
 			tileSet = TileSet.fourPlayerTileSet();
 			HandType test = Hand.canConstructHand(TileSet.removeRandomTiles(
 					tileSet, removeNum));
