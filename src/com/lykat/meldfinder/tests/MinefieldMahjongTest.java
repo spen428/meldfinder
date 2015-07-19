@@ -1,5 +1,8 @@
-package com.lykat.meldfinder.main;
+package com.lykat.meldfinder.tests;
 
+import com.lykat.meldfinder.main.Hand;
+import com.lykat.meldfinder.main.Tile;
+import com.lykat.meldfinder.main.TileSet;
 import com.lykat.meldfinder.main.Hand.HandType;
 
 /**
